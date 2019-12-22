@@ -1,0 +1,10 @@
+digraph {
+    qemu -> kvm[label="kvm ioctl[1]"];
+    libvirt -> qemu[label="qemu cmdline[2], qmp[3], qemu gap[4]"];
+    vdsm -> libvirt;
+    openstack_nova -> libvirt[label="libvirtd[5], libvirt APIs[6]"];
+    kubevirt -> libvirt;
+    RHV -> vdsm;
+    RHOS -> openstack_nova;
+    OpenShift -> kubevirt;
+}
