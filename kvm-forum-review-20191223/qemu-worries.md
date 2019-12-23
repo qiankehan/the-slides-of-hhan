@@ -82,6 +82,7 @@ The statistics of qemu CVEs until last year by catagories: ![qemu all CVEs](./qe
 For all, see [qemu CVEs details](https://www.cvedetails.com/vulnerability-list/vendor_id-7506/Qemu.html)
 
 ### Some are product quality while others are not
+The statistics of RedHat qemu CVEs until last year by catagories: ![qemu all CVEs](./qemu-CVEs-catagories-redhat.svg)  
 Refer to page7 of [Qemu security in kvm forum 2018](https://vmsplice.net/~stefan/stefanha-kvm-forum-2018.pdf)  
 Until now, no safe features list on upstream. But you can follow **RedHat
 downstream enabled features** because these features are more deeply tested than
