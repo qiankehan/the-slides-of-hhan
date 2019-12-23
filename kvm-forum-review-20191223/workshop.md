@@ -318,19 +318,22 @@ make install
 ```
 
 # Examples
-## Build qemu with only MircoVM,  virtio devices, x86_64 cpu arch, kvm enabled
-Configuration:
+## Add emulated NVME support in RedHat qemu
+Configuration: Follow the configure options of RedHat
+Edit **default-configs/x86_64-softmmu.mak** to add emulated nvme support:
 ```
-./configure --target-list=x86_64-softmmu --enable-kvm --disable-werror
+CONFIG_NVME_PCI=y
 ```
-Edit **default-configs/x86_64-softmmu.mak**:
+Then make
 ```
-include i386-softmmu.mak
-CONFIG_VIRTIO_BALLOON=y
-CONFIG_VIRTIO_BLK=y
-CONFIG_VIRTIO_NET=y
-CONFIG_VIRTIO_RNG=y
-CONFIG_VIRTIO_SCSI=y
-CONFIG_VIRTIO_SERIAL=y
-CONFIG_MICROVM=y
+make -j8
+```
+Check results with RedHat qemu-kvm
+```
+x86_64-softmmu/qemu-system-x86_64 -device nvme
+qemu-system-x86_64: -device nvme: drive property not set
+```
+```
+/usr/libexec/qemu-kvm -device nvme
+qemu-kvm: -device nvme: 'nvme' is not a valid device model name
 ```
